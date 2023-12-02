@@ -1,6 +1,15 @@
-ORG 0x7c00
+ORG 0
 BITS 16
+jmp 0x7c0:start
 start:
+    cli ;clear interrupts
+    mov ax, 0x7c0
+    mov ds, ax
+    mov es, ax
+    mov ax, 0x00
+    mov ss, ax
+    mov sp, 0x7c00
+    sti ;enable interrupts
     mov si, message ;does some shit
     call print
     jmp $
@@ -18,6 +27,6 @@ print_char:
     mov ah, 0eh
     int 0x10 ; Calls the BIOS, tells it to output al register;
     ret
-message: db "EngynOS Bootloader test!", 0
+message: db "EngynOS Bootloader test!", 0 ;; The only logical thing here
 times 510-  ($ - $$) db 0  ;What the fuck???
 dw 0xAA55 ; this is important i think

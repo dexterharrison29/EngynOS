@@ -15,8 +15,8 @@ int help(){
   printf("rmdir: Removes a directory\n");
   printf("touch: Creates a new file\n");
   printf("rm: removes a file\n");
-  printf("echo: outputs text to the terminal");
-  printf("edit: edit file.");
+  printf("echo: outputs text to the terminal\n");
+  printf("edit: edit file.\n");
   return 0;
 }
 
@@ -30,7 +30,8 @@ int versioncheck(){
   return 0;
 }
 int clear(){
-  printf("");
+  printf("\033[H\033[J");
+
 }
 int main() {
   while(1){
