@@ -26,11 +26,22 @@ int versioncheck(){
   printf("0.0.0");
   return 0;
 }
-int main(){
-  char line[256];
-  printf(">>> ");
-  if(fgets(line, sizeof line, stdin) != NULL) // This should do input
-  {
-    printf("%s\n", line);
+int main() {
+  while(1){
+    char command[256];
+    printf(">>> ");
+    if (fgets(command, sizeof command, stdin) != NULL) {
+        // Remove the newline character if it exists
+        command[strcspn(command, "\n")] = '\0';
+    } else {
+        // Handle error or exit
+    }
+    if (strcmp(command, "help")==0) {
+      help();
+    }
+    elif (strcmp(command, "version")==0) {
+      versioncheck()
+    }
   }
+  return 0;
 }

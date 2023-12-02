@@ -2,7 +2,7 @@ ORG 0x7c00
 BITS 16
 start:
     mov si, message ;does some shit
-    call print ;I am honored to print text to the screen. Such a significant day in programming history, the day when I, Dexter Harrison, printed some text. This
+    call print
     jmp $
 print:
     mov bx, 0
