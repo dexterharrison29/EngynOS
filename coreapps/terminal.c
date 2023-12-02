@@ -15,6 +15,8 @@ int help(){
   printf("rmdir: Removes a directory\n");
   printf("touch: Creates a new file\n");
   printf("rm: removes a file\n");
+  printf("echo: outputs text to the terminal");
+  printf("edit: edit file.");
   return 0;
 }
 
@@ -23,8 +25,12 @@ bool StartsWith(const char *a, const char *b){ // useful for later things
    return 0;
 }
 int versioncheck(){
-  printf("0.0.0");
+  printf("EngynOS v0.0.0");
+  printf("Terminal version 0.1.0");
   return 0;
+}
+int clear(){
+  printf("");
 }
 int main() {
   while(1){
@@ -39,8 +45,11 @@ int main() {
     if (strcmp(command, "help")==0) {
       help();
     }
-    elif (strcmp(command, "version")==0) {
-      versioncheck()
+    else if(strcmp(command, "version")==0) {
+      versioncheck();
+    }
+    else if(strcmp(command, "clear")==0) {
+      clear();
     }
   }
   return 0;
